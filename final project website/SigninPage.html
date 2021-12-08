@@ -1,0 +1,137 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Login TO TBP</title>
+  <link rel="icon" href="icon_path" type="image/icon type">
+  <style>
+    body {
+      /* background-image: url("WallpaperDog-20487509.jpg"); */
+      background-color: rgb(180, 131, 25);
+      height: 500px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+      backdrop-filter: blur(5px);
+    }
+  </style>
+  <meta name="google-signin-client_id"
+    content="29894626573-8h7vjf8f08cebpubft7atsjf2tmcp2v4.apps.googleusercontent.com">
+</head>
+
+<body>
+
+  <h2 style="font-size:50px;"><i> Welcome to The Big Picture</i></h2>
+  <button1 onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button1>
+  <img src="The Big Picture-logos_transparent.png" alt="logo" class="logo"><br>
+
+  <div id="my-signin2"></div>
+
+
+
+
+
+
+
+  <script>
+    function onSuccess(googleUser) {
+      console.log('Logged in as: ' + googleUser.getBasicProfile().getName());
+    }
+    function onFailure(error) {
+      console.log(error);
+    }
+    function renderButton() {
+      gapi.signin2.render('my-signin2', {
+        'scope': 'profile email',
+        'width': 240,
+        'height': 50,
+        'longtitle': true,
+        'theme': 'dark',
+        'onsuccess': onSuccess,
+        'onfailure': onFailure
+      });
+    }
+  </script>
+
+  <script src="https://apis.google.com/js/platform.js?onload=renderButton" async defer></script>
+  <div id="id01" class="modal">
+
+    <div class="box" >
+      <div class="imgcontainer">
+        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+          title="Close Modal">&times;</span>
+        <img src="photos /png-transparent-nerd-geek-geek-face-photography-logo.png" alt="Avatar" class="avatar">
+      </div>
+
+      <div class="container">
+        <label for="uname"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+        <input type="checkbox" onclick="myFunction()">Show Password
+        <a href='projectmain.html'><button>Login</button></a>
+        <label>
+          <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+      </div>
+
+      <div class="container" style="background-color:#f1f1f1">
+        <button1 type="button" class="cancelbtn"> <a href="signUp.html"> Sign Up</a></button1>
+        <button1 type="button" class="psw"> <a href="forgotPassword.html">Forgot Password</a></button1>
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+
+    function onSignin(googleUser) {
+      var profile = googleUser.getBasicProfile();
+      alert("signed in!")
+    }
+    // var GoogleAuth; // Google Auth object.
+    // function initClient() {
+    //   gapi.client.init({
+    //     'apiKey': 'AIzaSyAl7pwfqrW7zXk_p4f5hVktxF75Y5oYUU0',
+    //     'clientId': '29894626573-8h7vjf8f08cebpubft7atsjf2tmcp2v4.apps.googleusercontent.com',
+    //     'scope': 'https://www.googleapis.com/auth/drive.metadata.readonly',
+    //     'discoveryDocs': ['https://www.googleapis.com/discovery/v1/apis/drive/v3/rest']
+    //   }).then(function () {
+    //     GoogleAuth = gapi.auth2.getAuthInstance();
+
+    //     // Listen for sign-in state changes.
+    //     GoogleAuth.isSignedIn.listen(updateSigninStatus);
+    //   });
+    // }
+
+
+
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+    function myFunction() {
+      var x = document.getElementById("myInput");
+      if (x.type === "psw") {
+        x.type = "text";
+      } else {
+        x.type = "psw";
+      }
+    }
+  </script>
+</body>
+
+</html>
